@@ -9,15 +9,24 @@
 </template>
 
 <script>
-import { addNote, deleteNote, toggleFavorite } from '../vuex/actions';
+import { deleteNote, toggleFavorite } from '../vuex/actions';
 
 export default {
+  data() {
+    return {
+      activeNote: this.$store.getters.activeNote,
+    };
+  },
+  methods: {
+    addNote() {
+      this.$store.dispatch('addNote');
+    },
+  },
   vuex: {
     getters: {
       activeNote: state => state.activeNote,
     },
     actions: {
-      addNote,
       deleteNote,
       toggleFavorite,
     },

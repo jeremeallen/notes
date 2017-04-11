@@ -6,7 +6,13 @@ Vue.use(Vuex);
 // the root, initial state object
 const state = {
   notes: [],
-  activeNote: {},
+  activeNote: {
+    favorite: false,
+  },
+};
+
+const getters = {
+  activeNote: appState => appState.activeNote,
 };
 
 // define the possible mutations that can be applied to our state
@@ -46,4 +52,5 @@ const mutations = {
 export default new Vuex.Store({
   state,
   mutations,
+  getters,
 });
