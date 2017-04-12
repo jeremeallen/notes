@@ -9,15 +9,16 @@
 </template>
 
 <script>
-import { editNote } from '../vuex/actions';
 
 export default {
-  vuex: {
-    getters: {
-      activeNoteText: state => state.activeNote.text,
-    },
-    actions: {
-      editNote,
+  data() {
+    return {
+      activeNoteText: this.$store.getters.activeNote.text,
+    };
+  },
+  methods: {
+    editNote() {
+      this.$store.dispatch('editNote', this.activeNoteText);
     },
   },
 };

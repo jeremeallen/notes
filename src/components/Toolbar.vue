@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { deleteNote, toggleFavorite } from '../vuex/actions';
 
 export default {
   data() {
@@ -21,14 +20,11 @@ export default {
     addNote() {
       this.$store.dispatch('addNote');
     },
-  },
-  vuex: {
-    getters: {
-      activeNote: state => state.activeNote,
+    deleteNote() {
+      this.$store.dispatch('deleteNote');
     },
-    actions: {
-      deleteNote,
-      toggleFavorite,
+    toggleFavorite() {
+      this.$store.dispatch('toggleFavorite');
     },
   },
 };
