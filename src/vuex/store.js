@@ -51,4 +51,21 @@ export default new Vuex.Store({
   state,
   mutations,
   getters,
+  actions: {
+    addNote(context) {
+      context.commit('ADD_NOTE');
+    },
+    editNote(context, text) {
+      context.commit('EDIT_NOTE', text);
+    },
+    deleteNote(context) {
+      context.commit('DELETE_NOTE');
+    },
+    updateActiveNote(context, note) {
+      context.commit('SET_ACTIVE_NOTE', note);
+    },
+    toggleFavorite(context) {
+      context.commit('TOGGLE_FAVORITE');
+    },
+  },
 });

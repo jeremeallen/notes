@@ -39,26 +39,23 @@
 </template>
 
 <script>
-import { updateActiveNote } from '../vuex/actions';
 
 export default {
   data() {
     return {
       show: 'all',
+      notes: this.$store.getters.notes,
+      activeNote: this.$store.getters.activeNote,
     };
   },
-  vuex: {
-    getters: {
-      notes: state => state.notes,
-      activeNote: state => state.activeNote,
-    },
-    actions: {
-      updateActiveNote,
+  methods: {
+    updateActiveNote(note) {
+      this.$store.dispatch('SET_ACTIVE_NOTE', note);
     },
   },
   computed: {
     filteredNotes() {
-      if (this.show === 'favorites') {
+      if (this.notes.length && this.show === 'favorites') {
         return this.notes.filter(note => note.favorite);
       }
 
