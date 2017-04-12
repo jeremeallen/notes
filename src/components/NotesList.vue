@@ -44,8 +44,6 @@ export default {
   data() {
     return {
       show: 'all',
-      notes: this.$store.getters.notes,
-      activeNote: this.$store.getters.activeNote,
     };
   },
   methods: {
@@ -60,6 +58,12 @@ export default {
       }
 
       return this.notes;
+    },
+    notes() {
+      return this.$store.getters.notes;
+    },
+    activeNote() {
+      return this.$store.getters.activeNote;
     },
   },
 };

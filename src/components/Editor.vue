@@ -1,7 +1,7 @@
 <template>
   <div id="note-editor">
     <textarea
-      :value="activeNoteText"
+      :value="displayText"
       @input="editNote"
       class="form-control">
     </textarea>
@@ -11,14 +11,14 @@
 <script>
 
 export default {
-  data() {
-    return {
-      activeNoteText: this.$store.getters.activeNote.text,
-    };
+  computed: {
+    displayText() {
+      return this.$store.getters.activeNote.text;
+    },
   },
   methods: {
-    editNote() {
-      this.$store.dispatch('editNote', this.activeNoteText);
+    editNote(e) {
+      this.$store.dispatch('editNote', e.target.value);
     },
   },
 };
