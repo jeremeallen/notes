@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     updateActiveNote(note) {
-      this.$store.dispatch('SET_ACTIVE_NOTE', note);
+      this.$store.dispatch('updateActiveNote', note);
     },
   },
   computed: {
