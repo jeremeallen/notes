@@ -33,8 +33,13 @@ const mutations = {
   },
   DELETE_NOTE(appState) {
     const theState = appState;
-    state.notes.$remove(state.activeNote);
-    theState.activeNote = state.notes[0];
+    const newNotes = state.notes.filter(n => n !== state.activeNote);
+
+    theState.notes = newNotes;
+
+    if (theState.notes.length) {
+      theState.activeNote = theState.notes[0];
+    }
   },
   TOGGLE_FAVORITE(appState) {
     const theState = appState;
