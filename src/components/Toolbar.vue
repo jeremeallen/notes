@@ -11,10 +11,10 @@
 <script>
 
 export default {
-  data() {
-    return {
-      activeNote: this.$store.getters.activeNote,
-    };
+  computed: {
+    activeNote() {
+      return this.$store.getters.activeNote;
+    },
   },
   methods: {
     addNote() {
