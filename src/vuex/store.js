@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import getters from './getters';
+
 Vue.use(Vuex);
 
 // the root, initial state object
@@ -9,10 +11,6 @@ const state = {
   activeNote: {
     favorite: false,
   },
-};
-
-const getters = {
-  activeNote: appState => appState.activeNote,
 };
 
 // define the possible mutations that can be applied to our state
